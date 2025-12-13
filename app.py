@@ -1,9 +1,3 @@
-"""
-Haber İzleme Sistemi - cPanel/Passenger için
-his.utftoplulugu.com
-7/24 otomatik güncelleme
-"""
-
 from flask import Flask, render_template_string, jsonify, request, redirect, session
 import feedparser
 import hashlib
@@ -17,10 +11,10 @@ app = Flask(__name__)
 app.secret_key = secrets.token_hex(32)
 
 # ==========================================
-# AYARLAR - BUNLARI DEĞİŞTİR!
+# AYARLAR
 # ==========================================
-ADMIN_USER = "admin"
-ADMIN_PASS = "admin123"  # ÖNEMLİ: Bunu değiştir!
+ADMIN_USER = "admin" # kullanıcı adı
+ADMIN_PASS = "admin123"  # şifre
 TARAMA_ARALIGI = 5  # dakika
 
 # ==========================================
@@ -73,7 +67,7 @@ RSS_KAYNAKLAR = {
     "Ars Technica": ("https://feeds.arstechnica.com/arstechnica/index", "en"),
     "VentureBeat AI": ("https://venturebeat.com/category/ai/feed/", "en"),
     
-    # === TÜRK DEVLET KURUMLARI ===
+    # === TÜRK KAYNAKLAR ===
     "TCMB Duyurular": ("https://www.tcmb.gov.tr/wps/wcm/connect/tcmb+tr/tcmb+tr/main+menu/duyurular/rss/duyurular_rss", "tr"),
     "Hazine Bakanlığı": ("https://www.hmb.gov.tr/rss/haberler", "tr"),
     "Ticaret Bakanlığı": ("https://www.ticaret.gov.tr/rss/haberler", "tr"),
